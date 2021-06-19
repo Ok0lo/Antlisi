@@ -1,0 +1,74 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 6/19/21 7:30 PM
+Description: Saving entity NBT
+
+java.lang.NullPointerException: Saving entity NBT
+	at _Ok0lo.antlisi.capability.SkillsStorage.writeNBT(SkillsStorage.java:24)
+	at _Ok0lo.antlisi.capability.SkillsStorage.writeNBT(SkillsStorage.java:1)
+	at _Ok0lo.antlisi.capability.SkillsProvider.serializeNBT(SkillsProvider.java:29)
+	at net.minecraftforge.common.capabilities.CapabilityDispatcher.serializeNBT(CapabilityDispatcher.java:123)
+	at net.minecraft.entity.Entity.writeToNBT(Entity.java:1741)
+	at net.minecraft.server.integrated.IntegratedPlayerList.writePlayerData(IntegratedPlayerList.java:26)
+	at net.minecraft.server.management.PlayerList.saveAllPlayerData(PlayerList.java:943)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:169)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Unknown Source)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at _Ok0lo.antlisi.capability.SkillsStorage.writeNBT(SkillsStorage.java:24)
+	at _Ok0lo.antlisi.capability.SkillsStorage.writeNBT(SkillsStorage.java:1)
+	at _Ok0lo.antlisi.capability.SkillsProvider.serializeNBT(SkillsProvider.java:29)
+	at net.minecraftforge.common.capabilities.CapabilityDispatcher.serializeNBT(CapabilityDispatcher.java:123)
+
+-- Entity being saved --
+Details:
+	Entity Type: null (net.minecraft.entity.player.EntityPlayerMP)
+	Entity ID: 244
+	Entity Name: Player302
+	Entity's Exact location: 9.50, 67.00, 251.50
+	Entity's Block location: World: (9,67,251), Chunk: (at 9,4,11 in 0,15; contains blocks 0,0,240 to 15,255,255), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.entity.Entity.writeToNBT(Entity.java:1741)
+	at net.minecraft.server.integrated.IntegratedPlayerList.writePlayerData(IntegratedPlayerList.java:26)
+	at net.minecraft.server.management.PlayerList.saveAllPlayerData(PlayerList.java:943)
+	at net.minecraft.server.integrated.IntegratedServer.tick(IntegratedServer.java:169)
+	at net.minecraft.server.MinecraftServer.run(MinecraftServer.java:526)
+	at java.lang.Thread.run(Unknown Source)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.12.2
+	Operating System: Windows 8 (amd64) version 6.2
+	Java Version: 1.8.0_281, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 3930223240 bytes (3748 MB) / 4193779712 bytes (3999 MB) up to 4193779712 bytes (3999 MB)
+	JVM Flags: 2 total; -Xmx4G -Xms4G
+	IntCache: cache: 0, tcache: 0, allocated: 12, tallocated: 94
+	FML: MCP 9.42 Powered by Forge 14.23.5.2855 5 mods loaded, 5 mods active
+	States: 'U' = Unloaded 'L' = Loaded 'C' = Constructed 'H' = Pre-initialized 'I' = Initialized 'J' = Post-initialized 'A' = Available 'D' = Disabled 'E' = Errored
+
+	| State  | ID        | Version      | Source                                                             | Signature |
+	|:------ |:--------- |:------------ |:------------------------------------------------------------------ |:--------- |
+	| LCHIJA | minecraft | 1.12.2       | minecraft.jar                                                      | None      |
+	| LCHIJA | mcp       | 9.42         | minecraft.jar                                                      | None      |
+	| LCHIJA | FML       | 8.0.99.99    | forge-1.12.2-14.23.5.2855_mapped_snapshot_20171003-1.12-recomp.jar | None      |
+	| LCHIJA | forge     | 14.23.5.2855 | forge-1.12.2-14.23.5.2855_mapped_snapshot_20171003-1.12-recomp.jar | None      |
+	| LCHIJA | antlisi   | 010NI        | main                                                               | None      |
+
+	Loaded coremods (and transformers): 
+	GL info: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	Profiler Position: N/A (disabled)
+	Player Count: 1 / 8; [EntityPlayerMP['Player302'/244, l='New World', x=9.50, y=67.00, z=251.50]]
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'fml,forge'
